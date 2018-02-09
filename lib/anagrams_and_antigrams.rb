@@ -7,12 +7,7 @@ class Project
   end
 
   def check_anagrams
-    puts @word1_to_test
-    puts @word2_to_test
-    true
+    
   end
 
 end
-
-project = Project.new("ruby", "bury")
-project.check_anagrams
