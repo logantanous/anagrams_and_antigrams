@@ -48,4 +48,8 @@ class Project
     end
   end
 
+  def check_if_antigram
+    
+  end
+
 end

@@ -11,4 +11,7 @@ describe('#Project') do
   it("checks if two words are both words") do
     expect(project = Project.new("Crap", "CARP").check_if_word).to(eq(true))
   end
+  it("checks if two words are anitgrams \(a word where no letters match\)") do
+    expect(project = Project.new("Crap", "junk").check_if_antigram).to(eq(true))
+  end
 end
