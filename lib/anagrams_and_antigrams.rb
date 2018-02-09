@@ -2,9 +2,10 @@
 
 
 class Project
-  def initialize(word1, word2)
+  def initialize(word1, word2, sentence)
     @word1_to_test = word1
     @word2_to_test = word2
+    @sentence_to_test = sentence
   end
 
   def check_anagrams
@@ -48,31 +49,42 @@ class Project
     end
   end
 
+  def check_if_antigram
+    if check_anagrams == false
+      antigram = false
+      @word1_to_test.downcase.split("").each do |character|
+        reg = Regexp.new character
+        if !!(@word2_to_test.downcase =~ reg)
+          antigram = true
+          puts "true"
+        end
+      end
+      if antigram == true
+        puts "These words have letter matches and are not antigrams"
+      else
+        puts "These words have no letter matches and are antigrams"
+      end
+      antigram
+    else
+      puts "this is an anagram"
+      true
+    end
+  end
+
   def check_if_antigram_and_anagram
     if check_if_word == true
-      if check_anagrams == false
-        antigram = false
-        @word1_to_test.downcase.split("").each do |character|
-          reg = Regexp.new character
-          if !!(@word2_to_test.downcase =~ reg)
-            antigram = true
-            puts "true"
-          end
-        end
-        if antigram == true
-          puts "These words have letter matches and are not antigrams"
-        else
-          puts "These words have no letter matches and are antigrams"
-        end
-        antigram
-      else
-        puts "this is an anagram"
-        true
-      end
+      check_if_antigram
     else
       puts "Please input real words"
     end
   end
 
-  
+
+  def check_sentence_for_words_question_mark
+    sentence_to_fix = @sentence_to_test
+    sentence_to_fix = sentence_to_fix.gsub(/\W/, '')
+    puts "test"
+    puts sentence_to_fix
+  end
+
 end
