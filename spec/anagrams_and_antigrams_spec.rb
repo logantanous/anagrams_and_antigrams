@@ -9,6 +9,6 @@ describe('#Project') do
     expect(project = Project.new("Crap", "CARP").check_case).to(eq(true))
   end
   it("checks if two words are both words") do
-    expect(project = Project.new("ruby", "yurb").check_if_word).to(eq(true))
+    expect(project = Project.new("Crap", "CARP").check_if_word).to(eq(true))
   end
 end
