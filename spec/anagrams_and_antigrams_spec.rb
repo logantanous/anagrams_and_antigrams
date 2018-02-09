@@ -6,6 +6,6 @@ describe('#Project') do
     expect(project = Project.new("crap", "carp").check_anagrams).to(eq(true))
   end
   it("checks if two words with different cases are anagrams") do
-    expect(project = Project.new("Crap", "CARP").check_anagrams).to(eq(true))
+    expect(project = Project.new("Crap", "CARP").check_case).to(eq(true))
   end
 end
