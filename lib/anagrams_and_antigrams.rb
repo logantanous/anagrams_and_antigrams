@@ -13,6 +13,7 @@ class Project
       false
     end
   end
+
   def check_case
     @word1_to_test.downcase!
     @word2_to_test.downcase!
@@ -21,6 +22,10 @@ class Project
     else
       false
     end
+  end
+
+  def check_if_word
+    false
   end
 
 end
