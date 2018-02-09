@@ -9,7 +9,7 @@ class Project
   def check_anagrams
     puts @word1_to_test
     puts @word2_to_test
-    
+    true
   end
 
 end
