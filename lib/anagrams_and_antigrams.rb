@@ -56,18 +56,16 @@ class Project
         reg = Regexp.new character
         if !!(@word2_to_test.downcase =~ reg)
           antigram = true
-          puts "true"
+          "This is an antigram"
         end
       end
       if antigram == true
-        puts "These words have letter matches and are not antigrams"
+        "These words have letter matches and are not antigrams"
       else
-        puts "These words have no letter matches and are antigrams"
+        "These words have no letter matches and are antigrams"
       end
-      antigram
     else
-      puts "this is an anagram"
-      true
+      "This is an anagram"
     end
   end
 
@@ -79,12 +77,42 @@ class Project
     end
   end
 
-
+  #Prompt #5 makes no sense to me so I'm going to check a sentence and compare the words inside to each other
   def check_sentence_for_words_question_mark
     sentence_to_fix = @sentence_to_test
-    sentence_to_fix = sentence_to_fix.gsub(/\W/, '')
-    puts "test"
-    puts sentence_to_fix
+    sentence_to_fix = sentence_to_fix.gsub(/\W/, ' ')
+    sentence_to_fix = sentence_to_fix.gsub(/\s\s/, ' ')
+    word_hash = { }
+    anagram_hash = { }
+
+    sentence_to_fix.split(" ").each do |word|
+      if word_hash["#{word}"] == nil
+        count = word.downcase.count 'aeiouy'
+        if (count > 0) & (compare_to_dictionary(word.downcase) == true)
+          word_hash["#{word}"] = "word"
+        else
+          word_hash["#{word}"] = "not a word"
+        end
+      end
+    end
+    word_hash.each do |key, value|
+      if value == "word"
+        puts key
+        word_hash.each do |keyothers, valueothers|
+          if value == "word"
+            if key != keyothers
+              @word1_to_test = key
+              @word2_to_test = keyothers
+              if check_if_word == true
+                puts "\[#{@word1_to_test} and #{@word2_to_test}: #{check_if_antigram}\]"
+              end
+            end
+          end
+        end
+        puts "__"
+      end
+    end
+    true
   end
 
 end

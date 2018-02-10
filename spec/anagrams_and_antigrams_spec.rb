@@ -12,10 +12,10 @@ describe('#Project') do
     expect(project = Project.new("Crap", "CARP", "").check_if_word).to(eq(true))
   end
   it("checks if two words are anitgrams \(a word where no letters match\)") do
-    expect(project = Project.new("craps", "junk", "").check_if_antigram_and_anagram).to(eq(false))
+    expect(project = Project.new("craps", "junk", "").check_if_antigram_and_anagram).to(eq("These words have no letter matches and are antigrams"))
   end
   #worst prompt ever so I have no idea if this is what we are supposed to do \/
   it("checks if multiple words are antigrams or anagrams and are words") do
-    expect(project = Project.new("", "", "I drink carp tea and carp eat, sleep, crap.").check_sentence_for_words_question_mark).to(eq(true))
+    expect(project = Project.new("", "", "I sdf drink carp tea and eat, sleep, crap.").check_sentence_for_words_question_mark).to(eq(true))
   end
 end
