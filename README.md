@@ -24,7 +24,7 @@ Four: This program will check if two words are antigrams
 Input: craps, junk
 Output: These are an antigram.
 
-Five: This program will check if multiple words are antigrams, anagrams or not and removes punctuation
+Five: This program will check if multiple words are antigrams, anagrams or not and removes punctuation. The author of this program had no idea what the prompt for number 5 was asking so each word compares itself with all of the other words.
 Input: I sdf drink carp tea and eat, sleep, crap
 Output:
 [I and drink: These words have letter matches and are not antigrams]
